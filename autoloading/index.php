@@ -4,7 +4,7 @@ spl_autoload_register(
     function ($className)
     {
         $className = str_replace('\\', DIRECTORY_SEPARATOR, $className);
-        echo ($fileName = __DIR__.'/'.$className.'.php') . '<br>';
+        $fileName = __DIR__.DIRECTORY_SEPARATOR.$className.'.php';
         require_once $fileName;
     }
 );
