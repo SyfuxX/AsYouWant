@@ -1,9 +1,19 @@
 <?php
 
+spl_autoload_register(
+    function ($className)
+    {
+        $className = str_replace('\\', DIRECTORY_SEPARATOR, $className);
+        echo ($fileName = __DIR__.'/'.$className.'.php') . '<br>';
+        require_once $fileName;
+    }
+);
+
 use Human\Human as Human;
 use Human\Leg;
 
 new Leg();
+
 $logger1 = Logger::getInstance();
 
 if (isset($_POST['human'])) {
